@@ -1,0 +1,38 @@
+<div class="container mt-3">
+    <div class="row text-dark bg-warning pt-3 rounded">
+        <h3><i class="text-danger">Navigate Route :- </i>When we want to go one page to another on a condition then we use navigate route. (e.g. if record add more than 3 then it redirect to another page)</h3>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <input #inputInfo type="text" name="" value="" class="form-control" id="">
+        </div>
+        <div class="col-md-2 text-center">
+            <button mat-raised-button color="accent" (click)="onCreate(inputInfo)">Create user</button>
+        </div>
+        <div class="col-md-1">
+            <button mat-raised-button color="warn" (click)="onRemove(inputInfo)">Remove</button>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+
+    <div class="row mt-5  bg-white">
+        <div class="bg-dark">
+            <div class="row">
+                <div class="col-md-12 pt-3"><h1>List of Users</h1></div>
+            </div>
+        </div>
+        <div class="text-dark" *ngFor="let i of users">
+            <div *ngIf="i!==''">
+                <div class="row mt-2 border-bottom">
+                    <div class="col-md-6">
+                        <h1>{{i}}</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <button mat-raised-button color="warn" (click)="onRemove(i)">Remove</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

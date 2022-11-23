@@ -1,0 +1,17 @@
+<div class="container  mt-5">
+    <div class="row" *ngIf="clicked===''">
+        <div class="col-md-6">
+            <button class="btn btn-warning btn-lg text-center" (click)="btnClick('reactiveForm')" >Reactive Form</button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-warning btn-lg text-center" (click)="btnClick('template')">Template Driven</button>
+        </div>
+    </div>
+    <div class="row" *ngIf="clicked==='reactiveForm'">
+        <app-reactiveformconcept></app-reactiveformconcept>
+    </div>
+    <div class="row" *ngIf="clicked==='template'">
+        <app-template-driven></app-template-driven>
+    </div>
+    
+</div>

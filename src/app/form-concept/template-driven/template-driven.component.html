@@ -1,0 +1,14 @@
+
+<div class="container text-danger">
+    <div class="row">
+
+<form (ngSubmit)="onSubmit(myFrom)" #myFrom="ngForm">
+    <label for="">Name</label><br>
+    <input type="text" name="name" ngModel id=""><br>
+    <label for="">Password</label><br>
+    <input type="text" name="pass" ngModel id="">
+    <br>
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>
+    </div>
+</div>

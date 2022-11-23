@@ -1,0 +1,11 @@
+<div class="container text-dark mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div *ngFor="let i of customers">
+                <a [routerLink]="['/singleuser',i.id]" class="row nav-link p-2 bg-info border-bottom">
+                    {{i.id}} = {{i.name}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

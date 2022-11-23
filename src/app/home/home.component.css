@@ -1,0 +1,13 @@
+button{
+    padding: 30px;
+    font-size: 1rem;
+    background-color: rgb(120, 174, 208);
+    
+    border-radius: 6px 6px;
+}
+
+button:hover{
+    background-color: rgb(62, 104, 131);
+    color: aliceblue;
+    transition: 0.2s;
+}

@@ -1,0 +1,101 @@
+<div class="container text-dark ">
+    <div class="row">
+      <div class="col-md-3">
+          <div class="display-6">Form Control</div>
+          <hr>
+        <label for="">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id=""
+          [formControl]="name"
+        />
+        <br />
+        <p>
+          Value : <strong>{{ name.value }}</strong>
+        </p>
+  
+        <button mat-raised-button color="accent" (click)="onUpdate()">
+          Update
+        </button>
+      </div>
+      
+      <div class="col-md-1"></div>
+  
+      <div class="col-md-3">
+          <div class="display-6">Form Group</div>
+          <hr>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <label for="">Name <span class="text-danger">*</span></label>
+          <input type="text" minlength="2" maxlength="6" name="" class="form-control" formControlName="name" id="" />
+          <small class="text-danger"
+          *ngIf="!profileForm.get('name')?.valid && profileForm.get('name')?.touched"
+          > &nbsp;(min length is 2 & max length is 6)</small>
+          <br>
+          <label for="">Email <span class="text-danger">*</span></label>
+          <input type="text" name="" class="form-control" formControlName="email" id="">
+          <small class="text-danger"
+          *ngIf="!profileForm.get('email')?.valid && profileForm.get('email')?.touched"
+          > &nbsp; please enter valid email</small>
+          <br>
+          <h3>Address : -</h3>
+          <div formGroupName="address">
+              <label for="">City <span class="text-secondary">(optional)</span></label>
+              <input type="text" name="" class="form-control" formControlName="city" id="">
+              <br>    
+              <label for="">State <span class="text-danger">*</span></label>
+              <input type="text" name="" class="form-control" formControlName="state" id="">
+              <small class="text-danger"
+              *ngIf="!profileForm.get('address.state')?.valid && profileForm.get('address.state')?.touched"
+              >&nbsp; state is compulsory</small>
+              <br>
+          </div>
+          <div formArrayName="skills" class="mb-2">
+              <input type="text" class="form-control" #info value="">  
+              <button class="btn btn-primary mt-1" (click)="onAdd(info)">+ Add Skill</button><br>
+              <ng-container *ngFor="let item of skills.controls;let i=index">
+                  <button class="btn btn-secondary m-1" disabled *ngIf="item.value!==''">{{item.value}}</button>
+              </ng-container>
+          </div>
+  
+          <button mat-raised-button color="accent" class="me-2" (click)="onUpdateForm()">Update</button>
+          <button mat-raised-button type="submit" color="primary" [disabled]="!profileForm.valid">Submit</button>
+        </form>
+      </div>
+  
+      <div class="col-md-1"></div>
+  
+      <div class="col-md-3">
+          <div class="display-6">Form Builder</div>
+          <hr>
+          <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+              <label for="">First Name</label>
+              <input type="text" class="form-control" formControlName="fname">
+              <br>
+              <label for="">Last Name</label>    
+              <input type="text" class="form-control" formControlName="lname">
+              <br>
+              <div formGroupName="address">
+                  <h3>Address : -</h3>
+                  <label for="">Street</label>
+                  <input type="text" class="form-control" formControlName="street">
+                  <br>
+                  <label for="">City</label>
+                  <input type="text" class="form-control" formControlName="city">
+                  <br>
+                  <label for="">State</label>
+                  <input type="text" class="form-control" formControlName="state">
+                  <br>    
+              </div>
+              <button mat-raised-button type="submit" [disabled]="!userForm.valid">Submit</button>
+          </form>
+      </div>
+  
+      <div class="col-md-1"></div>
+  
+    </div>
+  
+  
+  </div>
+  

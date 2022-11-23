@@ -1,0 +1,52 @@
+<div class="container mt-3">
+  <div class="row text-dark bg-warning pt-3 rounded">
+    <h3>
+      <i class="text-danger">Ng Content :- </i>
+      When we use common component and need changes in
+      some parts of component
+    </h3>
+  </div>
+  <div class="row mt-3">
+    <div class="alert alert-success" role="alert" *ngIf="alertText">
+      <div class="row">
+        <div class="col-md-6">
+          <strong>{{ alertText }}</strong
+          >&nbsp; is added in cart.
+        </div>
+        <div class="col-md-6 text-end">
+          <button mat-raised-button class="text-end">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <app-cards>
+        <h1 class="card-title">Laptop</h1>
+        <a (click)="onSelect('Laptop')" class="btn btn-primary">watch laptop</a>
+      </app-cards>
+    </div>
+    <div class="col-md-3">
+      <app-cards>
+        <h1 class="card-title">Mobile</h1>
+        <a (click)="onSelect('Mobile')" class="btn btn-primary">watch Mobile</a>
+      </app-cards>
+    </div>
+    <div class="col-md-3">
+      <app-cards>
+        <h1 class="card-title">Watch</h1>
+        <a (click)="onSelect('Watch')" class="btn btn-primary">watch Watch</a>
+      </app-cards>
+    </div>
+    <div class="col-md-3">
+      <app-cards>
+        <h1 class="card-title">Tv</h1>
+        <a (click)="onSelect('Tv')" class="btn btn-primary">watch Tv</a>
+      </app-cards>
+    </div>
+  </div>
+  <app-chil-component
+    [selected]="selected"
+    (propertyBind)="receivedData($event)"
+  ></app-chil-component>
+</div>
